@@ -7,6 +7,22 @@ ENV PACKER_VERSION=1.2.5 \
 
 ENV PACKER_ZIPFILE=packer_${PACKER_VERSION}_${PACKER_OSNAME}_${PACKER_OSARCH}.zip
 
-ADD https://releases.hashicorp.com/packer/${PACKER_VERSION}/${PACKER_ZIPFILE} ${PACKER_DEST}/
-RUN unzip ${PACKER_DEST}/${PACKER_ZIPFILE} -d ${PACKER_DEST} && \
-    rm -rf ${PACKER_DEST}/${PACKER_ZIPFILE}
+RUN wget https://releases.hashicorp.com/packer/${PACKER_VERSION}/${PACKER_ZIPFILE} -O ${PACKER_DEST}/packer.zip && \
+    unzip ${PACKER_DEST}/packer.zip -d ${PACKER_DEST} && \
+    rm -rf ${PACKER_DEST}/packer.zip
+
+RUN apk --no-cache add \
+    sudo \
+    python \
+    py-pip \
+    openssl \
+    ca-certificates && \
+    apk --no-cache add --virtual \
+    build-dependecies \
+    python-dev \
+    libffi-dev \
+    openssl-dev \
+    build-base
+
+RUN pip install --no-cache --upgrade pip && \
+    pip install --no-cache --upgrade cffi ansible==2.6.3
