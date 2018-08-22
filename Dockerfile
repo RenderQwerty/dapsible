@@ -17,8 +17,9 @@ RUN apk --no-cache add \
     python \
     py-pip \
     openssl \
-    ca-certificates && \
-    apk --no-cache add --virtual \
+    ca-certificates
+
+RUN apk --no-cache add --virtual \
     build-dependecies \
     python-dev \
     libffi-dev \
