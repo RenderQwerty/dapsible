@@ -17,7 +17,13 @@ RUN apk --no-cache add \
     python \
     py-pip \
     openssl \
-    ca-certificates
+    ca-certificates \
+    less \
+    openssh-client \
+    p7zip \
+    py-lxml \
+    rsync \
+    sshpass
 
 RUN apk --no-cache add --virtual \
     build-dependecies \
@@ -27,4 +33,4 @@ RUN apk --no-cache add --virtual \
     build-base
 
 RUN pip install --no-cache --upgrade pip && \
-    pip install --no-cache --upgrade cffi ${ANSIBLE} ansible-lint
+    pip install --no-cache --upgrade cffi ${ANSIBLE} ansible-lint docker
