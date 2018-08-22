@@ -1,5 +1,6 @@
 FROM docker:stable
 LABEL maintainer "Yurii Fisakov <fisakov.root@gmail.com>"
+ENV ANSIBLE="ansible==2.6.3"
 ENV PACKER_VERSION=1.2.5 \
     PACKER_OSARCH=amd64 \
     PACKER_OSNAME=linux \
@@ -25,4 +26,4 @@ RUN apk --no-cache add \
     build-base
 
 RUN pip install --no-cache --upgrade pip && \
-    pip install --no-cache --upgrade cffi ansible==2.6.3
+    pip install --no-cache --upgrade cffi ${ANSIBLE}
