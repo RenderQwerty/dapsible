@@ -27,4 +27,4 @@ RUN apk --no-cache add --virtual \
     build-base
 
 RUN pip install --no-cache --upgrade pip && \
-    pip install --no-cache --upgrade cffi ${ANSIBLE}
+    pip install --no-cache --upgrade cffi ${ANSIBLE} ansible-lint
