@@ -33,4 +33,4 @@ RUN apk --no-cache add --virtual \
     build-base
 
 RUN pip install --no-cache --upgrade pip && \
-    pip install --no-cache --upgrade cffi ${ANSIBLE} ansible-lint docker
+    pip install --no-cache --upgrade cffi ${ANSIBLE} ansible-lint docker apache-libcloud
