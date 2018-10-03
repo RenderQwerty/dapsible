@@ -22,7 +22,8 @@ RUN apk --no-cache add \
     p7zip \
     py-lxml \
     rsync \
-    sshpass
+    sshpass \
+    jq
 
 RUN apk --no-cache add --virtual \
     build-dependecies \
