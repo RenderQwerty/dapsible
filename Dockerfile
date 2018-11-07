@@ -1,6 +1,6 @@
 FROM docker:stable
 LABEL maintainer "Yurii Fisakov <fisakov.root@gmail.com>"
-ENV PACKER_VERSION=1.2.5 \
+ENV PACKER_VERSION=1.3.2 \
     PACKER_OSARCH=amd64 \
     PACKER_OSNAME=linux \
     PACKER_DEST=/bin
@@ -23,7 +23,8 @@ RUN apk --no-cache add \
     py-lxml \
     rsync \
     sshpass \
-    jq
+    jq \
+    curl
 
 RUN apk --no-cache add --virtual \
     build-dependecies \
